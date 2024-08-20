@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  dangpro-system:
+    container_name: dangpro-hook-policy
+    image: dangpro-hook-policy
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
