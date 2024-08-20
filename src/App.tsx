@@ -59,31 +59,29 @@ function App() {
   return (
     <div className="bg-gray-200 w-full min-h-dvh flex justify-center items-center">
       <div className="bg-white p-10 rounded-md gap-2 items-start flex flex-col max-w-[60%]">
-        <h1 className="text-2xl font-bold">Xóa Tài Khoản và Dữ Liệu</h1>
+        <h1 className="text-2xl font-bold">계정 및 데이터 삭제</h1>
         <p>
-          Chúng tôi tôn trọng quyền riêng tư của bạn và cam kết bảo vệ dữ liệu
-          cá nhân của bạn. Nếu bạn muốn xóa tài khoản và toàn bộ dữ liệu của
-          mình khỏi ứng dụng DangPro, vui lòng nhập số điện thoại đã đăng ký với
-          chúng tôi.
+          저희는 여러분의 개인 정보 보호를 존중하며, 여러분의 개인 데이터를
+          보호하기 위해 최선을 다하고 있습니다. DangPro 앱에서 계정 및 모든
+          데이터를 삭제하고 싶으시면, 등록하신 전화번호를 입력해 주세요.
         </p>
-        <p className="font-bold">Lưu ý:</p>
+        <p className="font-bold">주의:</p>
         <ol>
           <li>
-            - Việc xóa tài khoản là hành động không thể hoàn tác. Tất cả dữ liệu
-            liên quan đến tài khoản của bạn sẽ bị xóa vĩnh viễn và không thể
-            khôi phục.
+            - 계정 삭제는 되돌릴 수 없는 작업입니다. 계정과 관련된 모든 데이터가
+            영구적으로 삭제되며 복구할 수 없습니다.
           </li>
-          <li>- Quá trình xóa dữ liệu có thể mất vài ngày để hoàn tất.</li>
+          <li>- 데이터 삭제 과정은 며칠이 소요될 수 있습니다.</li>
         </ol>
         <div>
-          <p className="font-bold mb-2">Số Điện Thoại và Hình Thức Đăng Ký:</p>
+          <p className="font-bold mb-2">전화번호 및 등록 방식:</p>
           <div className="flex items-center gap-2 flex-wrap">
             <input
               type="tel"
               className={`border px-4 py-2 rounded-md ${
                 isError && "border-red-600"
               }`}
-              placeholder="Số điện thoại "
+              placeholder="전화번호 "
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
 
@@ -91,16 +89,16 @@ function App() {
               className="bg-red-400 py-2 px-5 rounded-lg text-white hover:bg-red-300"
               onClick={onRequestOTP}
             >
-              {isLoading ? "Đang gửi OTP" : "Gửi OTP"}
+              {isLoading ? "OTP 전송 중" : "OTP 전송"}
             </button>
           </div>
-          {isError && <p>Số điện thoại không tồn tại</p>}
+          {isError && <p>존재하지 않는 전화번호입니다</p>}
           {isSuccess && (
             <div className="flex items-center gap-2 flex-wrap mt-2">
               <input
                 type="number"
                 className="border px-4 py-2 rounded-md "
-                placeholder="Mã OTP"
+                placeholder="OTP 코드"
                 onChange={(e) => setOtp(e.target.value)}
               />
 
@@ -108,15 +106,15 @@ function App() {
                 className="bg-green-400 py-2 px-5 rounded-lg text-white hover:bg-red-300"
                 onClick={onDeleteAcction}
               >
-                Xóa tài khoản
+                계정 삭제
               </button>
             </div>
           )}
           {isDeleteSuccess && (
-            <p className="text-xl text-green-500">Xóa tài khoản thành công</p>
+            <p className="text-xl text-green-500">계정 삭제 성공</p>
           )}
           {isDeleteFail && (
-            <p className="text-xl text-red-500">Xóa tài khoản thất bại</p>
+            <p className="text-xl text-red-500">계정 삭제 실패</p>
           )}
         </div>
       </div>
